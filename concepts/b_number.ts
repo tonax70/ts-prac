@@ -18,4 +18,4 @@ console.log(`
     // the types number can be dec, hex, bin, oct or float\n
     // important note: since all number sub-type is within the number type,\n
     // we can assign a different umber type t the previous type
-    `)
+    `);

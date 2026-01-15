@@ -8,6 +8,7 @@ let float: number = 3.14159;
 
 decimal = 0b1010;
 
+console.log("Number: represent numeric values (both int and float)");
 printVarInfo(decimal, "decimal");
 printVarInfo(hex, "hex");
 printVarInfo(binary, "binary");

@@ -1,3 +1,3 @@
-export const printVarInfo = (a) => {
-    console.log(`type of ${{a}/*object shorthand*/} is ${typeof a} as ${a}`);
+export const printVarInfo = (a, name:string) => {
+    console.log(`type of ${name/*object shorthand*/} is ${typeof a} as ${a}`);
 }

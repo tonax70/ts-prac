@@ -1,3 +1,5 @@
+import { printVarInfo } from "./_utils";
+
 console.log("Type alias: You can assign a type to a type variable and use it like a real type with different name");
 console.log("use \"type\" keyword for type declararion");
 type MangaYear = number;
@@ -24,5 +26,6 @@ const swykksnsks: Manga = {
   status: mangaStatus
 }
 
-console.log(`With aliases, type of mangaYear(number) is: ${typeof mangaYear}`);
-console.log(`With aliases, type of swykksnsks(Manga) is: ${typeof swykksnsks}`);
+printVarInfo(mangaYear,"mangaYear");
+
+printVarInfo(swykksnsks, "swykksnsks")

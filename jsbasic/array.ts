@@ -4,6 +4,7 @@ const chrt : string[] = ["SKS", "NKN", "SHR", "KEJ", "SRA"];
 
 //accessing
 console.log(chrt[0]);
+//returning undefined if index doesnt conatains value
 
 // property: length
 console.log(chrt.length);

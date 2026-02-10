@@ -28,4 +28,4 @@ function decideWinnerBest(players: number): string {
     return `Rolled ${JSON.stringify(dices)}. Player ${winners.join(" and ")} won`;
 }
 
-console.log(decideWinnerBest(5));
+console.log(decideWinnerBest(5000));

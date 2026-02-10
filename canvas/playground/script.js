@@ -50,3 +50,25 @@ The x- and y-coordinates define the center of the circle. r defines the radius o
 ctx.beginPath();
 ctx.arc(337.5, 37.5, 37.5, 0, 2*Math.PI);
 ctx.stroke();
+
+
+// rectangle
+ctx.beginPath();
+
+//define a rectangle, fillRect on top
+ctx.rect(375, 0, 100, 200);
+ctx.stroke();
+
+
+// stroke rect: draw rect without using the stroke method beacuse it's already contains it
+// Blue rectangle
+ctx.lineWidth = "10";
+ctx.strokeStyle = "blue";
+ctx.strokeRect(50, 50, 150, 80);
+
+// The clearRect() method is used to clear a rectangular area of the canvas.
+// The cleared rectangle is transparent.
+ctx.fillStyle = "green";
+ctx.fillRect(10,10, 150,100);
+
+ctx.clearRect(60,35, 50,50);

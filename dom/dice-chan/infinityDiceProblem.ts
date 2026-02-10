@@ -10,10 +10,22 @@ function rollDice (times:number) : number[]{
 function decideWinner(players:number) : string {
     let winners:number[] = [];
     const dices = rollDice(players);
+    const maxVal = Math.max(...dices);
     dices.forEach((value, index) => {
-        if (Math.max(...dices) === value) winners.push(index + 1);
+        if (maxVal === value) winners.push(index + 1);
     });
     return `Rolled ${JSON.stringify(dices)}. Player ${winners.join(" and ")} won`;
 }
 
-console.log(decideWinner(5));
+function decideWinnerBest(players: number): string {
+    const dices = rollDice(players);
+    const max = Math.max(...dices);
+
+    const winners = dices
+        .map((v, i) => v === max ? i + 1 : null)
+        .filter((v): v is number => v !== null);
+
+    return `Rolled ${JSON.stringify(dices)}. Player ${winners.join(" and ")} won`;
+}
+
+console.log(decideWinnerBest(5));

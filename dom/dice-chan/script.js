@@ -6,7 +6,6 @@ function dicePic (times) {
         randomNum = Math.floor(Math.random()*6)+1;
         arr.push(`./images/dice${randomNum}.png`);
     }
-
     return arr;
 }
 
@@ -17,3 +16,7 @@ function setDice (times) {
         document.getElementsByClassName("dice")[i].getElementsByTagName("img")[0].setAttribute("src", arr[i]);
     }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  setDice(3);
+});

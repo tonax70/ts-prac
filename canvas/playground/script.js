@@ -4,6 +4,7 @@ const canvas = document.getElementById("myCanvas");
 canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
+/** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
 ctx.fillStyle = '#fcb001';
 // the canvas y direction is also upside down like lin lovec 2d
@@ -12,6 +13,7 @@ ctx.fillStyle = '#fcb001';
 ctx.fillRect(0,0,150,75);
 
 
+ctx.beginPath();
 // draw a line
 ctx.moveTo(150, 0);
 ctx.lineTo(300, 75);

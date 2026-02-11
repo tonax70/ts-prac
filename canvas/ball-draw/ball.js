@@ -5,18 +5,40 @@ canvas.height = document.body.clientHeight;
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
 
-let speed = 100; // pixels per second
+let speedX = 100; // pixels per second
+let speedY = 100;
 let lastTime = 0;
-let radius = 50;
+let radius = 10;
 
 let ball = {
     radius : radius,
     x : radius,
     y : radius
 }
+// key event listener
+let keys = {};
+window.addEventListener("keydown", (e) => keys[e.code] = true);
+window.addEventListener("keyup", (e) => keys[e.code] = false);
 
 function update(deltaTime) {
-    ball.x += speed * deltaTime;
+    const incrX = () => ball.x += speedX * deltaTime;
+    const incrY = () => ball.y += speedY * deltaTime;
+    if (keys["KeyW"]) {
+        if (speedY > 0) speedY = -speedY;
+        incrY();
+    }
+    if (keys["KeyS"]) {
+        if (speedY < 0) speedY = Math.abs(speedY);
+        incrY();
+    }
+    if (keys["KeyA"]) {
+        if (speedX > 0) speedX = -speedX;
+        incrX();
+    }
+    if (keys["KeyD"]) {
+        if (speedX < 0) speedX = Math.abs(speedX);
+        incrX();
+    }
 }
 
 function draw() {

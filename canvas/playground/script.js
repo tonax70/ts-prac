@@ -95,3 +95,9 @@ ctx.stroke();
 ctx.beginPath();
 ctx.arc(300, 50, 40, 0, 0.5 * Math.PI, true);
 ctx.stroke();
+
+//curves
+ctx.beginPath();
+ctx.moveTo(10, 100);
+ctx.quadraticCurveTo(250, 170, 230, 300);
+ctx.stroke();

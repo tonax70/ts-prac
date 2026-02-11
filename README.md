@@ -10,7 +10,7 @@
 
 - canvas w3
     - canvas shapes
-    - make the canvas display the fulll screen width
+    - make the canvas display the full screen width
     - draw a circle
 
 ## Getting started

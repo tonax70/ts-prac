@@ -12,6 +12,9 @@
     - canvas shapes
     - make the canvas display the full screen width
     - draw a circle
+    - ball bug thinge
+        - listen for ASWD
+        - change velocity
 
 ## Getting started
 - javascript fun doing stuff

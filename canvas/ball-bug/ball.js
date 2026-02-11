@@ -4,16 +4,19 @@ canvas.height = document.body.clientHeight;
 
 /** @type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext("2d");
+ctx.font = "25px Arial"
+ctx.fillText("Ball bug - canvas ball no refresh turned into something", canvas.width/50, canvas.height/25);
 
-let speedX = 100; // pixels per second
-let speedY = 100;
+let speed = 500;
+let speedX = speed;
+let speedY = speed; // pixels per second
 let lastTime = 0;
 let radius = 10;
 
 let ball = {
     radius : radius,
     x : radius,
-    y : radius
+    y : canvas.height/2
 }
 // key event listener
 let keys = {};
@@ -43,7 +46,7 @@ function update(deltaTime) {
 
 function draw() {
     ctx.beginPath();
-    ctx.strokeStyle = 'blue'
+    ctx.strokeStyle = 'white'
     ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
     ctx.stroke();
 }

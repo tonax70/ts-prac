@@ -72,3 +72,26 @@ ctx.fillStyle = "green";
 ctx.fillRect(10,10, 150,100);
 
 ctx.clearRect(60,35, 50,50);
+
+
+// circle
+//arc method use to draw a circle
+
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+
+// circle with fillstyle
+ctx.beginPath();
+ctx.arc(200, 50, 40, 0, 2 * Math.PI);
+ctx.fillStyle = "red";
+ctx.fill();
+ctx.lineWidth = 4;
+ctx.strokeStyle = "blue";
+ctx.stroke();
+
+
+//circle clockwise or counterclockwise
+ctx.beginPath();
+ctx.arc(300, 50, 40, 0, 0.5 * Math.PI, true);
+ctx.stroke();

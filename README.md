@@ -11,6 +11,7 @@
 - canvas w3
     - canvas shapes
     - make the canvas display the fulll screen width
+    - draw a circle
 
 ## Getting started
 - javascript fun doing stuff

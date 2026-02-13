@@ -150,3 +150,23 @@ const objectB = {
 log(String(objectB.methodA)); // methodA called in global context so it didnt work and return undefined
 
 
+// object constructor =======================================================================================================
+// we can turn primititive values into object as well (but it will create a new object)
+
+let nbr = 1;
+let ObjNbr1 = new Object(nbr); // this will create a new object separated from primititive nbr 1
+
+let nbr2 = ObjNbr1;
+
+nbr = 2;
+
+log("the value of nbr 2 will be: " + nbr2); // expect 1 because the ObjNbr1 creates a new object separated from nbr
+
+// until we modify nbr1
+ObjNbr1 = Object(2);
+
+log("the value of nbr 2 will be: " + nbr2); // still expect 1 because nbr 2 is still point to the "memoryA" which store nbr 1
+
+nbr2 = ObjNbr1;
+
+log("the value of nbr 2 will be: " + nbr2); // only if we assign it again, it is now reference to the new memory box that point to new ObjNbr1

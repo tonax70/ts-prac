@@ -170,3 +170,18 @@ log("the value of nbr 2 will be: " + nbr2); // still expect 1 because nbr 2 is s
 nbr2 = ObjNbr1;
 
 log("the value of nbr 2 will be: " + nbr2); // only if we assign it again, it is now reference to the new memory box that point to new ObjNbr1
+
+// JSON parse and stringify ====================================================================================================================
+// stringify turn an object into string for better transmission
+log("manga object: " + JSON.stringify(manga));
+
+// can conver into string with selected object properies via the second array param
+let ch1ch2:string = JSON.stringify(manga, ["ch1", "ch2"]);
+log("manga object with selected ch1 and ch2: " + ch1ch2);
+
+//control the spacing of stringified object, formatted multiline json object
+log("manga object with spacing 3:\n" + JSON.stringify(manga, null, 3));
+
+// json parse turn the object string into an object again (typically using in receiver) or get data from localstorage
+let ObjWithCh1Ch2 = JSON.parse(ch1ch2);
+log("ch1 ch2 of manga converted back to object: " + ObjWithCh1Ch2.ch1 + " and " + ObjWithCh1Ch2.ch2);

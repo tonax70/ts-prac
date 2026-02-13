@@ -111,3 +111,42 @@ log("new nanga: " + JSON.stringify(newmanga));
 // when we assign nanga to newmanga , the newmanga object will only store the reference to the manga object it didnt create a new object
 // but the concat bethod will create a new "reference" to the object, just noticed
 
+
+// function method vs object method ======================================================================
+// function uses in general purpose of reusing codes
+// object methods are bounce to the object, can access the objects via `this` keyword
+
+const sks = {
+    name : "SKS",
+    age : 800,
+    g : "f",
+    f : true,
+    color : "#FCB001",
+    race : 'kitsune',
+    // the thing is that an arrow function doesn't own this keyword because it's always global (or based on the context of where called them), only function keyword own this
+    extractInfo : function() {
+        log(`${this.name} is ${this.age} years old and ${(this.g === "f")? "she" : "he"} has a ${this.color} ${this.f? "fluffy fur" : "fur"} and is a ${this.race}`)
+    }
+}
+
+// the difference if function and arrow function 
+//function belongs to an object and depends in the object context so it can access the porperty of the object itself
+
+log(String(sks.extractInfo()));
+
+// unlike function, arrow function depends on the context of where it is called
+// if we put the arrow function in the sks object and then call it outside the object (which we usually do), the arrow function 
+// will depends on the current scope context which is the current window and it has no this at this point so that's it
+const objectA = {
+    popsA : "a",
+    methodA : () => String("this is the PopsA property: " + this.popsA)
+}
+
+const objectB = {
+    popsA : "b",
+    methodA : log(objectA.methodA())
+}
+
+log(String(objectB.methodA)); // methodA called in global context so it didnt work and return undefined
+
+

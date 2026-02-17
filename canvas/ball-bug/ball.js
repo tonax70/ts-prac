@@ -49,6 +49,8 @@ function draw() {
     ctx.strokeStyle = 'white'
     ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
     ctx.stroke();
+    //ctx.fillText("go", ball.x, ball.y);
+
 }
 
 function gameLoop(timestamp) {

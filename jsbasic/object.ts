@@ -211,3 +211,57 @@ let {ch1: s1 = "none", ch2: s2 = "none", ch3, h4 = "placeholder"} = manga;
 
 // since char4 doesnt exits it will return placeholder when we are trying to return it
 log("h4: " + h4);
+
+// we can destruct a entire object and create a new object
+
+let manganew = {
+    ...manga,
+    prop : {
+        statusx : "the best",
+        isLoveCh1 : "hell yeah",
+    }
+}
+
+// we can destruct the prop object in manganew
+
+let {prop: {statusx}} = manganew;
+let way2 = manganew.prop.statusx; // eqiv to this way
+log("sks is : " + statusx + " and " + way2);
+
+// create an object shorthand syntax from variables
+// for object anime
+let cName = "Sen";
+let cAge = 800;
+let cColor = "#FCB001";
+let cFood = "tofu";
+let cFav = "cooking";
+let cStatus = "the best";
+
+// the syntax will create an object with the property name is the same as the variable name
+
+let best = {cName, cAge, cColor, cFood, cFav, cStatus};
+log("new best: " + JSON.stringify(best, ["cName", "cAge"], 1)); // always remember to write the values in the selected properties alway string even if it contains just a single word
+
+
+// from that we can create an util func
+// this will create a new object based on the following input
+function createAlime (
+    cName = "def name", 
+    cAge = 0, 
+    cColor = "#FFFFFF", 
+    cFood = "rice", 
+    cFav = "life", 
+    cStatus = "created"
+    ) : {
+    cName:string,
+    cAge:number,
+    cColor:string,
+    cFood:string,
+    cFav:string,
+    cStatus:string
+} {
+return {cName, cAge, cColor, cFood, cFav, cStatus};
+}
+
+log("example empty create func with default values: " + JSON.stringify(createAlime(), null, 1));
+log("example best character: " + JSON.stringify(createAlime(cName, cAge, cColor, cFood, cFav, cStatus), null, 1));

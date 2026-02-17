@@ -185,3 +185,29 @@ log("manga object with spacing 3:\n" + JSON.stringify(manga, null, 3));
 // json parse turn the object string into an object again (typically using in receiver) or get data from localstorage
 let ObjWithCh1Ch2 = JSON.parse(ch1ch2);
 log("ch1 ch2 of manga converted back to object: " + ObjWithCh1Ch2.ch1 + " and " + ObjWithCh1Ch2.ch2);
+
+
+// optional chaining =====================================================================================================
+// access object property without worrying whether they exits or not
+log("access ch1 in manga like normal: " + ch1);
+//log("this wouldn't possible if a property is not exist, cannot access property of undefined: " + ch1.fluffy.yes); // the program will crash
+
+log("this wouldn't possible if a property is not exist, cannot access property of undefined: " + ch1?.sks?.yes); // this will log undefined instead of an error
+// this tells js to only continue if the property is not null or undefined if yes it will return undefined
+// useful when we are not sure if a property exist or not
+
+// obj destructing ========================================================================================================================
+// extract values from objects in an easier way
+// introduced in es6
+// assign object property into variables
+// this will use {} for destruct an object instead of [] to destruct an array
+let {ch1: sen, ch2: nan} = manga;
+
+log("destructed values: " + sen + " and " + "nan");
+
+// if we dont know which properties are there but we want to make sure one property alway exist, use set default value
+
+let {ch1: s1 = "none", ch2: s2 = "none", ch3, h4 = "placeholder"} = manga;
+
+// since char4 doesnt exits it will return placeholder when we are trying to return it
+log("h4: " + h4);

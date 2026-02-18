@@ -271,11 +271,11 @@ log("example best character: " + JSON.stringify(createAlime(cName, cAge, cColor,
 
 const recipes = [];
 interface recipt {
-name: string,
-ingredients: string[],
-cookingTime: number,
-totalIngredients: number | null,
-difficultyLevel:string
+name: string;
+ingredients: string[];
+cookingTime: number;
+totalIngredients: number | null;
+difficultyLevel:string;
 }
 const recipe1 : recipt = {
   name: "Spaghetti Carbonara",

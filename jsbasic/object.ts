@@ -265,3 +265,70 @@ return {cName, cAge, cColor, cFood, cFav, cStatus};
 
 log("example empty create func with default values: " + JSON.stringify(createAlime(), null, 1));
 log("example best character: " + JSON.stringify(createAlime(cName, cAge, cColor, cFood, cFav, cStatus), null, 1));
+
+
+//===========================================================EXERCISES==============================================================================
+
+const recipes = [];
+interface recipt {
+name: string,
+ingredients: string[],
+cookingTime: number,
+totalIngredients: number | null,
+difficultyLevel:string
+}
+const recipe1 : recipt = {
+  name: "Spaghetti Carbonara",
+  ingredients: ["spaghetti", "Parmesan cheese", "pancetta", "black pepper"],
+  cookingTime: 22,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+const recipe2 : recipt = {
+  name: "Chicken Curry",
+  ingredients: ["chicken breast", "coconut milk", "curry powder", "onion", "garlic"],
+  cookingTime: 42,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+const recipe3 : recipt = {
+  name: "Vegetable Stir Fry",
+  ingredients: ["broccoli", "carrot", "bell pepper"],
+  cookingTime: 15,
+  totalIngredients: null,
+  difficultyLevel: ""
+};
+
+recipes.push(recipe1, recipe2, recipe3);
+
+function getTotalIngredients(ingredients:any[]):number {
+  return ingredients.length;
+}
+
+function getDifficultyLevel(cookingTime:number):string {
+  if (cookingTime <= 30) {
+    return "easy";
+  } else if (cookingTime <= 60) {
+    return "medium";
+  } else {
+    return "hard";
+  }
+}
+
+const recipe1TotalIngredients = getTotalIngredients(recipe1.ingredients);
+console.log(recipe1TotalIngredients);
+
+const recipe1DifficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+console.log(recipe1DifficultyLevel);
+
+recipe1.totalIngredients = getTotalIngredients(recipe1.ingredients);
+recipe1.difficultyLevel = getDifficultyLevel(recipe1.cookingTime);
+
+recipe2.totalIngredients = getTotalIngredients(recipe2.ingredients);
+recipe2.difficultyLevel = getDifficultyLevel(recipe2.cookingTime);
+
+recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
+recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
+

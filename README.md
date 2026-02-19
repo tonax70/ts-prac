@@ -7,6 +7,7 @@
 
 - freePractice
     - array method reviewed feb 10 2026
+    - object methods done feb 19 2025
 
 - canvas w3
     - canvas shapes

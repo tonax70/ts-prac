@@ -332,3 +332,52 @@ recipe2.difficultyLevel = getDifficultyLevel(recipe2.cookingTime);
 recipe3.totalIngredients = getTotalIngredients(recipe3.ingredients);
 recipe3.difficultyLevel = getDifficultyLevel(recipe3.cookingTime);
 
+// update music list prac
+type Album = {
+  albumTitle?: string;
+  artist?: string;
+  tracks?: string[];
+};
+
+type RecordCollection = {
+  [id: number]: Album;
+};
+const recordCollection : RecordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// notice that the square braces comes into play here, no dot access
+function updateRecords    (records:RecordCollection, id:number, prop: keyof Album, value:string) : typeof recordCollection {
+  let result = records as RecordCollection;
+  if (+(value) == 0) delete result[id][prop]
+  else if (prop !== "tracks" && isNaN(+value)) result[id][prop] = value
+  else if (prop === "tracks" && isNaN(+value) && !(prop in records[id])) {
+    let arr  = [];
+    arr.push(value);
+    result[id][prop] = arr;
+  } 
+  else if (prop === "tracks" && isNaN(+value)) {
+    result[id][prop]?.push(value)
+  }
+
+
+
+  return result;
+}
+

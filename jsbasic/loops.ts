@@ -188,3 +188,23 @@ if (person["firstName"] === fname) {
 }
 return "No such contact"
 }
+
+// string repeater (one shot)
+function repeatStringNumTimes(str:string, n:number) {
+  let out = "";
+  for (let i = 0; i < n; i++) {
+    out+=str
+  }
+  return out
+}
+
+// missing letter
+function fearNotLetter (str:string) {
+  let idx = 0;
+  for (let i = str.charCodeAt(0); i <= str.charCodeAt(str.length-1);i++){
+    if (i !== str.charCodeAt(idx)) return String.fromCharCode(i);
+    else idx++;
+  }
+  return undefined;
+}
+

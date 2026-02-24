@@ -125,3 +125,21 @@ const mutation = (ar:string[]) => {
   }
   return c === arContains.length;
 }
+
+// array splitter
+function chunkArrayInGroups (ar:number[], num:number) {
+  let out = [];
+  let prevI = 0;
+  for (let i = num; true; i+=num) {
+    if (i >= ar.length) {
+      out.push(ar.slice(prevI));
+      break;
+    }
+    else {
+      out.push(ar.slice(prevI, i));
+      prevI = i;
+    }
+  }
+  return out;
+}
+

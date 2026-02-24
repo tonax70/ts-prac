@@ -1,4 +1,4 @@
-const manga : {ch1:string, ch2:string, ch3?:string, h4?:string, "string sd"?:string} = {
+export const manga : {ch1:string, ch2:string, ch3?:string, h4?:string, "string sd"?:string} = {
 ch1 : "SKS",
 ch2 : "NKN",
 ch3 : "KEJ",

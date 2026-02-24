@@ -208,3 +208,4 @@ function fearNotLetter (str:string) {
   return undefined;
 }
 
+// note that for...in will loop key name instead of value in an array

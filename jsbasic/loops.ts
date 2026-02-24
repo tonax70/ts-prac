@@ -143,3 +143,48 @@ function chunkArrayInGroups (ar:number[], num:number) {
   return out;
 }
 
+// find person
+type contactProps = {
+    [key: string]:string | string[];
+    firstName: string;
+    lastName: string;
+    number: string;
+    likes: string[]
+}
+let contacts : contactProps[] = [
+  {
+    firstName: "Akira",
+    lastName: "Laine",
+    number: "0543236543",
+    likes: ["Pizza", "Coding", "Brownie Points"],
+  },
+  {
+    firstName: "Harry",
+    lastName: "Potter",
+    number: "0994372684",
+    likes: ["Hogwarts", "Magic", "Hagrid"],
+  },
+  {
+    firstName: "Sherlock",
+    lastName: "Holmes",
+    number: "0487345643",
+    likes: ["Intriguing Cases", "Violin"],
+  },
+  {
+    firstName: "Kristian",
+    lastName: "Vos",
+    number: "unknown",
+    likes: ["JavaScript", "Gaming", "Foxes"],
+  },
+];
+
+function lookUpProfile(fname:string, prop:string) {
+
+for (let person of contacts) {
+if (person["firstName"] === fname) {
+  if (prop in person) return person[prop]
+  else return "No such property";
+} else continue;
+}
+return "No such contact"
+}

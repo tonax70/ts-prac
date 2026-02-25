@@ -39,5 +39,23 @@ console.log("object is always nan: " + Number({}) + " and " + Number({name : "sk
 
 // In conclusion, you'll mostly use the Number() constructor for type conversion more than creating a number or a number object.
 
+// naming conventions =============================================================================================================================
 
+// boolean, use prefix like is, has, can
+let isGood : boolean = true;
+let hasPermission  : boolean = false;
+let canFly : boolean = true;
 
+// function will typically start with a verb
+function getUserData () {}
+
+// function that return boolean naming just like boolean value
+// send-retrieve data 
+function getName() {}
+function setName() {}
+
+// event handler function
+function handlePhoneNumberChange() {}
+
+// for array use  plural nouns
+let students = []; // avoid let student = [] because array represent more than one thing

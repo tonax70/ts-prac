@@ -59,3 +59,31 @@ function handlePhoneNumberChange() {}
 
 // for array use  plural nouns
 let students = []; // avoid let student = [] because array represent more than one thing
+
+// the length property nad fixed array ============================================================================================================================
+//spare array
+const al = (arr:any[])  => console.log("arr length: " + arr.length);
+const pa = (arr:any[])  => console.log("arr: " + arr.toString());
+const par = (arr:any[])  => console.log("arr raw: " + arr);
+
+const arSp = [1,,,,,,5];
+al(arSp);
+console.log('access spare elm: ' + arSp[3]);
+
+
+//create a fixed array length
+const newAr = new Array(10);
+al(newAr);
+pa(newAr);
+par(newAr);
+
+//another way to create an array of fixed length
+const newAr2 = Array.from({length : 10});
+al(newAr2);
+pa(newAr2);
+par(newAr2);
+
+// create an array and fill it with a number
+const filAr = new Array(10).fill(0);
+al(filAr);
+pa(filAr);

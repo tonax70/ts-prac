@@ -23,4 +23,21 @@ console.log("binary: " + sks_age.toString(36));
 //array tostring
 console.log("array tostring: " + [1,2,3].toString());
 
+// number constructor ======================================================================================================================
+// if we use Number(someNUmber) it will eventually return a primitive datatype number
+console.log("typeof Number() : " + typeof Number("800"));
+
+// if we use new Number() it will return a number object - which is non primitive type
+console.log("typeof Number() : " + typeof new Number("800"));
+
+
+// number type casting things
+console.log("boolean true and false : " + Number(true) + " and " + Number(false));
+console.log("empty string and null and undefined and a string \"a\": " + Number("") + " and " + Number(null) + " and " + Number(undefined) + " and " + Number("a"));
+console.log("array [] and [6] and [1,2]: " + Number([]) + " and " + Number([6]) + " and " + Number([1,2]));
+console.log("object is always nan: " + Number({}) + " and " + Number({name : "sks"}));
+
+// In conclusion, you'll mostly use the Number() constructor for type conversion more than creating a number or a number object.
+
+
 

@@ -87,3 +87,100 @@ par(newAr2);
 const filAr = new Array(10).fill(0);
 al(filAr);
 pa(filAr);
+
+// js closures ======================================================================================================================================
+function secret (character:string) {
+    let goat = 'fluffy'
+
+    function ilove () {
+        console.log("I love " + character + " and " + goat + " tail");
+    }
+    ilove();
+}
+
+// The inner function maintains a reference to its outer lexical environment, preserving access to the variables in that environment even after the outer function has completed.
+ secret("sen");
+
+ // we can create a function that works pretty much like a class in java where things can be implement like an object you know what I mean?
+
+ function car (action: string) {
+    const brand = "Lexus";
+    const model = "LX570";
+
+    function start() {
+        console.log(brand + " Brrrrrr brr " + model + " started speed up to 100km/h in just 7.7s");
+    }
+    function stop() {
+        console.log(brand + " stopped. With potent " + model + " ,we are finally go home!" );
+    }
+
+    (action === 'start')? start() : stop();
+ }
+
+ car("start");
+
+ setTimeout(() => {
+    car("stop");
+ }, 1000);
+
+ function counter() {
+    let count = 0;
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+let increment = counter();
+console.log(increment());
+console.log(increment());
+console.log(increment());
+
+// extra hard pyramid bruh
+function pyramid (ch:string, row:number, isFacingDown:boolean) : void {
+
+  if (!isFacingDown) {
+
+      for (let i = row; i > 0;  i--) {
+
+    let aRow = "";
+    for (let j = i; j > 0; j--) {
+
+        aRow += " ";
+
+    }
+
+    aRow += ch;
+
+    for (let k = row - i; k > 0; k--) {
+
+        aRow += ch + ch;
+
+    }
+    console.log(aRow);
+  }
+  } else {
+      for (let i = 0; i < row;  i++) {
+
+    let aRow = "";
+    for (let j = 0; j <= i; j++) {
+
+        aRow += " ";
+
+    }
+
+    aRow += ch;
+
+    for (let k = row - i - 1; k > 0; k--) {
+
+        aRow += ch + ch;
+
+    }
+    
+    console.log(aRow);
+  }
+  }
+
+}
+
+pyramid("s", 4, false)

@@ -184,3 +184,29 @@ function pyramid (ch:string, row:number, isFacingDown:boolean) : void {
 }
 
 pyramid("s", 4, false)
+
+//grade book app
+function getAverage (arr:number[]) {
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+  sum += arr[i]
+}
+return sum/arr.length
+}
+
+function getGrade (g:number) {
+if (g === 100) return "A+";
+if (g >= 90 && g <= 99) return "A";
+if (g >=80 && g <= 89) return "B";
+if (g >= 70 && g <= 79) return "C";
+if (g >= 60 && g <= 69) return "D";
+if (g >=0 && g <= 59) return "F";
+}
+
+const hasPassingGrade = (g:number) => getGrade(g) === "F"? false : true;
+
+
+function studentMsg (arr:number[], s:number) {
+  if (hasPassingGrade(s)) return `Class average: ${getAverage(arr)}. Your grade: ${getGrade(s)}. You passed the course.`;
+return `Class average: ${getAverage(arr)}. Your grade: ${getGrade(s)}. You failed the course.`;
+}

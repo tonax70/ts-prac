@@ -262,3 +262,58 @@ function says (str:string) {
 // for the case of let and const you wont be able to use the value before declaring it, it's still hoisted but in a different way that is uninitialized
 // and prevent them from using before init
 // there is something called temporal dead zone where in that interval the variable wont available to use
+
+// toUppercase first letter program
+const upperCaseFirstLetter = (str:string) => str.slice(0,1).toUpperCase() + str.slice(1).toLowerCase();
+const titleCase = (str:string) => str.trim().split(" ").map((s) => (upperCaseFirstLetter(s))).join(" ");
+
+// filter falsy elements from an array
+const bouncer = (arr:any) => arr.filter((element:any) => !!element);
+
+
+//inventory manager
+let inventory:any =[];
+
+function findProductIndex (pname:string) {
+for (let i = 0; i < inventory.length; i++) {
+  if (inventory[i]?.name === pname.toLowerCase()) return  i;
+}
+return -1;
+}
+function addProduct (prodObj:{name: string, quantity:number}) {
+  prodObj.name = prodObj.name.toLowerCase();
+  let pIndex = findProductIndex(prodObj.name);
+  if (pIndex !== -1) {
+    !!inventory[pIndex].quantity? inventory[pIndex].quantity+=prodObj.quantity : inventory[pIndex].quantity = 1;
+    console.log(`${prodObj.name} quantity updated`);
+  } else {
+    inventory.push(prodObj);
+    console.log(`${prodObj.name} added to inventory`);
+  }
+}
+
+function removeProduct(pname:string, pquan:number) {
+  let pIndex = findProductIndex(pname);
+  
+  if (pIndex === -1) {
+    console.log(`${pname.toLowerCase()} not found`);
+    return;
+  }
+
+  let product = inventory[pIndex];
+
+  if (product.quantity >= pquan) {
+    product.quantity -= pquan;
+    console.log(`Remaining ${product.name} pieces: ${product.quantity}`);
+    
+    // FIX: Remove from inventory ONLY if quantity hits 0
+    if (product.quantity === 0) {
+      inventory.splice(pIndex, 1);
+      console.log(`${product.name} removed from inventory`);
+    }
+  } else {
+    console.log(`Not enough ${product.name} available, remaining pieces: ${product.quantity}`);
+  }
+}
+console.log(removeProduct("FLOUR", 10))
+console.log(inventory)

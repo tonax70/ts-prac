@@ -210,3 +210,55 @@ function studentMsg (arr:number[], s:number) {
   if (hasPassingGrade(s)) return `Class average: ${getAverage(arr)}. Your grade: ${getGrade(s)}. You passed the course.`;
 return `Class average: ${getAverage(arr)}. Your grade: ${getGrade(s)}. You failed the course.`;
 }
+
+// the OG var keyword ====================================================================================================================================
+/*
+var is an OG keyword but it comes with many drawback
+
+var is function scoped that means if it's not within any function (in loops,if else or anywhere outside a function) it will become global
+and one of the issues is that we can re-init the var without any issues
+*/
+
+var variable = 1;
+
+console.log("Original var: " + variable);
+
+var variable = 5; // somehow this still works
+
+console.log("I can re-init the value: " + variable + " which is not supposes to be happened in the cons or let keyword");
+
+// it still exist global even inside the if because ITS FUNCTION SCOPE
+
+if ("sen" === "sen") {
+    var sen = "good";
+    let senGood = "fluffy";
+}
+
+console.log("we can still access the sen variable even if inside the if block: " + sen);
+
+// let and const provides block scoping just like other languages that makes life easier
+
+// hoisting =======================================================================================================================================
+// variable hoisting
+
+console.log(xv); // in other language like java we will get an error but instead we get undefined in javascript
+var xv = 5;
+console.log(xv);
+// that means the init part of the variable will hoist to the top and looks something like this
+/*
+var xv;
+console.log(xv); // in other language like java we will get an error but instead we get undefined in javascript
+xv = 5;
+console.log(xv);
+*/
+
+// function hoisting, the function is also hoisted to the top of the scope before they ever executed so we can call the function before declaring it
+says("Hello world");
+
+function says (str:string) {
+    console.log(str)
+}
+
+// for the case of let and const you wont be able to use the value before declaring it, it's still hoisted but in a different way that is uninitialized
+// and prevent them from using before init
+// there is something called temporal dead zone where in that interval the variable wont available to use

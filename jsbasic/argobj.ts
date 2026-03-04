@@ -80,3 +80,78 @@ function anotherFunction(x, y, ...theArgs) {
 // }
 
 // the different between the argument and the ...rest method is that the bare-bone argument is array like while the rest method is now a real array
+
+// unique var arr
+// unite unique sorted array
+
+function uniteUnique () {
+  const collected = [];
+  for (let arg of arguments) {
+    collected.push(...arg);
+  }
+  return [...new Set(collected)]
+}
+
+
+// random password gen
+function generatePassword (len:number) {
+  let ran = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  let pas = "";
+  for (let i = 0; i < len; i++)  {
+    pas += ran[Math.floor(Math.random()*ran.length)];
+  }
+  return pas;
+}
+
+let password = generatePassword(12);
+console.log("Generated password: " + password);
+
+// all numbers
+function sumAll (arrTwo:number[]) {
+  let sortedTwo = arrTwo.sort((a, b) => a - b);
+  let sum = 0;
+  for (let i = sortedTwo[0]; i <= sortedTwo[1]; i++) {
+    sum+=i;
+  }
+  return sum;
+}
+
+
+// html converter
+function tr(ch:string) {
+  switch(ch) {
+    case "&" : return "&amp;";
+    case "<" : return "&lt;";
+    case ">" : return "&gt;";
+    case '"' : return "&quot;";
+    case "'" : return "&apos;";
+  }
+  return ch;
+}
+
+function convertHTML (str:string) {
+  let result = "";
+  for (let ch of str) {
+    result += tr(ch);
+  }
+  return result;
+}
+
+// sum odd fib
+function sumFibs  (n:number) {
+  let prevv = 0;
+  let prev = 1;
+  let current = 0;
+  let sum = 1;
+  while (current <= n) {
+    current = prevv + prev;
+    prevv = prev;
+    prev = current;
+    if (current <= n && !!(current%2)) sum+= current;
+  }
+return sum;
+}
+
+console.log(sumFibs (1))
+
+

@@ -54,3 +54,28 @@ function fahh (bars: string) {
 
 const yap = fahh("SKS");
 yap("is the GOAT");
+
+// the map method
+// map uses to apply a given operation for each element within an array
+// the method doesnt modify the array instead it return a new array
+
+// try build the map function fr
+function manualMap (arr:any[], fn:(arg:any) => any ) {
+    const resultArray:any = [];
+    arr.forEach(function(element) {
+        resultArray.push(fn(element))
+    })
+    return resultArray;
+}
+const classifying = (num:number) => !!(num%2)? "even number" : "odd number";
+console.log(manualMap(numbers, classifying));
+console.log("is equiv to: " + numbers.map(classifying))
+
+// log array using map just like foreach
+console.log(numbers.map((element, index, array) => {
+    if (index === 2) array.splice(index,1);
+  console.log("Element:", element);
+  console.log("Index:", index);
+  console.log("Array:", array);
+  return element * 2;
+}));

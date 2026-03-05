@@ -104,3 +104,14 @@ const developers = [
   { name: "David", age: 25 }
 ];
 console.log(JSON.stringify(developers.filter((person) => (isOdd(person.age))), null, 2));
+
+// the reduce method
+// allow us to process an array and condense it into a value
+// sum numbers using reducers
+
+console.log(numbers.reduce((acc, num) => acc + num), 0);
+
+
+// method chaining - ive played these games before 🗣️🔥🔥🔥
+// calc sum of tripled odd number in array
+console.log(numbers.map((n) => n*3).filter(isOdd).reduce((acr, n) => acr + n)); 

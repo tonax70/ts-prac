@@ -79,3 +79,28 @@ console.log(numbers.map((element, index, array) => {
   console.log("Array:", array);
   return element * 2;
 }));
+//filter method
+// uses to create an array that returns a new filtered array based on specific criteria
+// the callback  
+const isOdd = (num:number) => !!(num%2);
+
+// the filter method with parse truthy falsy values to boolean
+function manualFilter (arr:any[], fn:(arg:any) => any) {
+    const result = [];
+    for (let item of arr) {
+        if (Boolean(fn(item))) result.push(item);
+    }
+    return result;
+}
+
+console.log("Manual filter: " + manualFilter(numbers, isOdd));
+console.log("Official filter: " + numbers.filter(isOdd));   
+
+// filter object to perform search function
+const developers = [
+  { name: "Alice", age: 25 },
+  { name: "Bob", age: 30 },
+  { name: "Charlie", age: 35 },
+  { name: "David", age: 25 }
+];
+console.log(JSON.stringify(developers.filter((person) => (isOdd(person.age))), null, 2));

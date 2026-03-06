@@ -4,6 +4,7 @@
 
 - tc24wdb
     - basic dom reviewed feb 5 2026
+    - jts fundamental done mar 5 2026
 
 - freePractice
     - array method reviewed feb 10 2026

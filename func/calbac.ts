@@ -115,3 +115,33 @@ console.log(numbers.reduce((acc, num) => acc + num), 0);
 // method chaining - ive played these games before 🗣️🔥🔥🔥
 // calc sum of tripled odd number in array
 console.log(numbers.map((n) => n*3).filter(isOdd).reduce((acr, n) => acr + n)); 
+
+
+//sort method
+/*
+sort method uses to sort an array of element alphabetically or  lexicographically
+that means the sort will convert all of them to string instead of comparing numbers like we expected
+*/
+const stuffedNumber = [25,16,37,7,56,350];
+// we instead see it only sort based on the equiv first unicode character converted from that number
+console.log("Sort with no sorting callback: " + stuffedNumber.sort());
+// the wrong sorted array because it converts the first number to their utf-16 (unicode) equiv value like 65 > A, 66 > B, 67 > C etc...
+// the solution is to provide a compare function
+
+console.log("Sorting with compare function increment: " + stuffedNumber.sort((a, b) => a - b));
+console.log("Sorting with compare function decrement: " + stuffedNumber.sort((a, b) => b - a));
+// notice that the sort method sort the original array and return the reference of the original array, no copy is being made
+
+
+//every() and some() methods
+// sometimes I might want to check if all or some elements meets a specific criteria
+// the every() method will check all elements within the array and evaluate if they meets that specific criteria defined in the callback function
+// if all aligned it will return true
+// if one element fail it will break immediately and return false
+console.log("Check if every number is even or not within the array: " + stuffedNumber.filter((a)=> !!(a%2)).every(a=> !!(a%2)));
+
+// the some() method instead find at least once element pass the criteria and return true
+// if none, return false
+console.log("Check at least an odd number exist: " + stuffedNumber.some(a => !(a%2)));
+console.log("if performing some() method on an empty array to check even number: " + [].some(a=>!!(a%2)));
+console.log("If using every() method to an empty array to check if every element is undefined: " + [].every(a=>a===undefined))

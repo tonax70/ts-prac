@@ -83,7 +83,7 @@ console.log(getBooksByAuthor(library, "Arvid Kahl"));
 console.log("\nList of books by James Clear:\n");
 console.log(getBooksByAuthor(library, "James Clear"));
 
-console.log("\nTotal number of pages for all library books:\n");
+console.log("\nTotal number of pages for all library books: " + library.map((bk)=> bk.pages).reduce((accr,p) => accr + p));
 
 interface bk2 {
     title: string;

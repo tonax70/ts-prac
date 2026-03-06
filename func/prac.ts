@@ -160,3 +160,37 @@ return false;
 }))
 }
 
+function isPrime(num:number):boolean {
+    // Numbers less than 2 are not prime
+    if (num <= 1) {
+        return false;
+    }
+    // 2 is the only even prime number
+    if (num === 2) {
+        return true;
+    }
+    // Other even numbers are not prime, so we can skip them in the loop
+    if (num % 2 === 0) {
+        return false;
+    }
+
+    // Check for odd divisors up to the square root of num
+    const limit = Math.sqrt(num);
+    for (let i = 3; i <= limit; i += 2) {
+        if (num % i === 0) {
+            return false; // Found a divisor, not prime
+        }
+    }
+
+    return true; // No divisors found, it is prime
+}
+
+
+function sumPrimes (n:number) {
+  if (n < 2) return 0;
+  let count = 0;
+  for (let i = 0; i <= n; i++) {
+if (isPrime(i)) count+=i;
+  }
+  return count;
+}

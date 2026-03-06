@@ -116,3 +116,27 @@ return 0;
 const filteredBooks  = books.filter((bk)=> bk.releaseYear <= 2000);
 
 filteredBooks.sort(sortByYear);
+
+// index finder
+function getIndexToIns (arr:number[], num:number) {
+arr.sort((a,b)=> a - b);
+const idx = arr.findIndex((element) => element >= num);
+if (Math.max(...arr) < num) return arr.length;
+return idx===-1? 0 : idx;
+}
+
+// 2 arrays xor
+
+function existBoth (arr1:any[], arr2:any[]) {
+  const a = [];
+  for (let el of arr1) {
+    if (arr2.some((item) => item === el)) a.push(el);
+  }
+  return a;
+}
+function diffArray (arr1:any[], arr2:any[]) {
+  const merged = [...new Set([...arr1, ...arr2])];
+  const sharedElement = existBoth(arr1, arr2);
+  return merged.filter((element) => !sharedElement.some((e)=> e === element));
+}
+

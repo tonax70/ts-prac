@@ -85,3 +85,34 @@ console.log(getBooksByAuthor(library, "James Clear"));
 
 console.log("\nTotal number of pages for all library books:\n");
 
+interface bk2 {
+    title: string;
+    authorName: string;
+    releaseYear: number;
+}
+const books = [
+    {
+    title: 'Your Next Five Moves: Master the Art of Business Strategy',
+    authorName: 'Patrick Bet-David and Greg Dinkin',
+    releaseYear: 1000,
+  },
+  {
+    title: 'Atomic Habits',
+    authorName: 'James Clear',
+    releaseYear: 2000,
+  },
+  {
+    title: 'Choose Your Enemies Wisely: Business Planning for the Audacious Few',
+    authorName: 'Patrick Bet-David',
+    releaseYear: 3040,
+  },
+];
+
+function sortByYear (bk1:bk2, bk2:bk2) {
+if (bk1.releaseYear < bk2.releaseYear) return -1;
+if (bk1.releaseYear > bk2.releaseYear) return 1;
+return 0;
+}
+const filteredBooks  = books.filter((bk)=> bk.releaseYear <= 2000);
+
+filteredBooks.sort(sortByYear);

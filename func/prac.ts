@@ -140,3 +140,23 @@ function diffArray (arr1:any[], arr2:any[]) {
   return merged.filter((element) => !sharedElement.some((e)=> e === element));
 }
 
+// destroy arg item
+function destroyer (arr:any[], ...arg:any) {
+  let argUnique = new Set(arg)
+  return arr.filter(i => !argUnique.has(i))
+}
+
+
+//matching obj filter
+function whatIsInAName (arrObj:any[], srcObj:{ [key:string] :any}) {
+const keysInSrcObjectCount = Object.keys(srcObj).length;
+return (arrObj.filter((obj) => {
+  let count = 0;
+for (let property in srcObj) {
+  if (property in obj && obj[property] === srcObj[property]) count++;
+}
+if (count === keysInSrcObjectCount) return true;
+return false;
+}))
+}
+

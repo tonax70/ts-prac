@@ -24,3 +24,26 @@ function factorial (x:number):number {
 }
 factorial(10);
 console.log(JSON.stringify(arr));
+
+//resusion print from 1 to 10
+function revis (n:number) {
+    if (n < 0) return;
+    console.log(n);
+    return revis(n-1);
+}
+revis(10);
+
+function doTheJob (cumber:number) {
+const arrx:number[] = new Array();
+
+function recus (n:number) {
+    if (n < 0) return;
+    arrx.push(n);
+    recus(n-1);
+}
+
+recus(cumber);
+return arrx;
+}
+
+console.log(doTheJob(800));

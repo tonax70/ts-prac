@@ -194,3 +194,11 @@ if (isPrime(i)) count+=i;
   }
   return count;
 }
+
+
+function truthCheck(collection:Array<Record<string, any>>, pre:string) {
+  return !!collection.map((item:Record<string,any>) => item[pre]).reduce((accr:any, item:any) => !!accr && !!item);
+
+}
+
+console.log(truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot"))

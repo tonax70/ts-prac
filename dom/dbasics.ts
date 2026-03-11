@@ -30,3 +30,11 @@ document.querySelectorAll("body > div"); // select div elements that are direct 
 
 // querySelectorAll is powerful in js to select multiple elements and one
 
+
+// innerHtml and createElement()
+
+// innerHtml can be helpful to add content to the page but it will insert content directly to the page so user might be able to insert malicious content
+// to the page
+// recommend textContent instead to insert plaintext
+// we can also create an element and append child to it
+

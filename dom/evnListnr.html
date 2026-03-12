@@ -20,9 +20,11 @@
     <button id="testA">chick</button>
     <button id="testB">remove it boi</button>
     <button id="testC">show secret plz</button>
+    <h1 id="yapWarning"></h1>
     <img class="sigma" src="./wutDa.png" alt="wut da">
 </body>
 <script>
+    let timeAmt = 5;
     const getA = document.getElementById("testA");
     const getB = document.getElementById("testB");
     const getC = document.getElementById("testC");
@@ -39,10 +41,20 @@
         }
     })
 
-    getC.addEventListener("click", ()=>{
+    getC.addEventListener("click", () => {
         document.querySelector(".sigma").classList.toggle("yap")
     })
+    // start to yap after 5 s
+    const itrvId = setInterval(() => {
+        if (timeAmt > 0) timeAmt--;
+        document.querySelector("#yapWarning").textContent = `Start yapping in ${timeAmt} seconds.`;
+    }, 1000);
 
+    setTimeout(function () {
+        document.querySelector(".sigma").classList.toggle("yap");
+        document.querySelector("#yapWarning").textContent = ``;
+        clearInterval(itrvId);
+    }, 5000);
 </script>
 
 </html>

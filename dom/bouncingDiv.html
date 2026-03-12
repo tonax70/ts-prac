@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: fixed;
+            z-index: 10;
+        }
+
+        div {
+            background-color: aquamarine;
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            position: absolute;
+            border: 5px solid cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btnStart">start</button>
+    <button id="btnStop" style="left: 60px">stop</button>
+
+    <div id="ball"></div>
+</body>
+<script>
+    const ball = document.getElementById("ball");
+    let positionX = 0;
+    let velocityX = 2;
+    let positionY = 0;
+    let velocityY = 3.3;
+    let stopNow = false;
+
+    function update() {
+        ball.style.left = positionX + "px";
+        positionX += velocityX;
+
+        ball.style.top = positionY + "px";
+        positionY += velocityY;
+
+        if (positionX > window.innerWidth - 105 || positionX < 0) {
+            velocityX = -velocityX;
+        }
+
+        if (positionY > window.innerHeight - 105 || positionY < 0) {
+            velocityY = -velocityY;
+        }
+    }
+
+    function animate() {
+        if (stopNow) return;
+        update();
+        requestAnimationFrame(animate);
+    }
+    document.getElementById("btnStart").addEventListener("click", () => requestAnimationFrame(animate));
+    document.getElementById("btnStop").addEventListener("click", () => {stopNow = !stopNow});
+</script>
+
+</html>

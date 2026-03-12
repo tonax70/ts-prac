@@ -47,7 +47,11 @@ const animation = ball.animate([
 })
 
 document.getElementById("pauseBtn").addEventListener("click", ()=> animation.pause());
-document.getElementById("continueBtn").addEventListener("click", ()=> animation.play());
+document.getElementById("continueBtn").addEventListener("click", ()=> {
+        document.getElementById("status").textContent = "Progressing...";
+    animation.play()
+
+});
 animation.onfinish = () => {
     document.getElementById("status").textContent = "Animation finished";
 }

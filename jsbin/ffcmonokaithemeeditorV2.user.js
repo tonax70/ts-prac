@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Monokai theme for ffc
-// @description  change color of free code camp stuff
+// @description  change color of ffc stuff
 // @namespace    http://tampermonkey.net/
 // @version      1.0
 // @match        ffc

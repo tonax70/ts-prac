@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sigma {
+            display: none;
+        }
+
+        .sigma.yap {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="testA">chick</button>
+    <button id="testB">remove it boi</button>
+    <button id="testC">show secret plz</button>
+    <img class="sigma" src="./wutDa.png" alt="wut da">
+</body>
+<script>
+    const getA = document.getElementById("testA");
+    const getB = document.getElementById("testB");
+    const getC = document.getElementById("testC");
+    getA.addEventListener("click", () => {
+        const el = document.createElement("p");
+        el.innerHTML = "gud";
+        document.body.appendChild(el);
+    })
+
+    getB.addEventListener("click", () => {
+        if (document.body.lastElementChild.id !== "testB") {
+            document.body.lastElementChild.remove();
+
+        }
+    })
+
+    getC.addEventListener("click", ()=>{
+        document.querySelector(".sigma").classList.toggle("yap")
+    })
+
+</script>
+
+</html>

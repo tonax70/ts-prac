@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            position: fixed;
+            z-index: 10;
+        }
+
+        div {
+            background-color: aquamarine;
+            height: 100px;
+            width: 100px;
+            border-radius: 100%;
+            position: absolute;
+            border: 5px solid cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="pauseBtn">hold on man</button>
+    <button id="continueBtn" style='left: 100px'>continue going</button>
+    <h1 id="status" style="display: inline-block">Progressing....</h1>
+    <div id="ball"></div>
+</body>
+<script>
+const ball = document.getElementById("ball");
+const animation = ball.animate([
+{
+    transform: "translateX(200px)",
+    width: "5px"
+},
+{
+    transform: "translateX(600px)",
+    width: "150px"
+}
+], {
+    duration: 1000,
+    iterations: 5,
+    direction: "alternate",
+    easing: "ease-in-out",
+})
+
+document.getElementById("pauseBtn").addEventListener("click", ()=> animation.pause());
+document.getElementById("continueBtn").addEventListener("click", ()=> animation.play());
+animation.onfinish = () => {
+    document.getElementById("status").textContent = "Animation finished";
+}
+</script>
+
+</html>

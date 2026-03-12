@@ -73,7 +73,7 @@
         .token.regex, .token.important { color: #FD971F !important; }
 
         /* Hard override for Monaco Editor background */
-        .monaco-editor, .monaco-editor-background, .monaco-editor .margin {
+        .monaco-editor, .monaco-editor-background, .monaco-editor .margin .code {
             background-color: #272822 !important;
         }
     `;
@@ -81,7 +81,8 @@
     function applyState() {
         document.body.style.backgroundColor = '#1A1B16';
         document.getElementById("learn-app-wrapper").style.backgroundColor = '#1A1B16';
-        document.querySelectorAll(".language-html, .language-js, .language-md, .language-css, code").forEach(element => (element.style.backgroundColor = '#2A2B24'));
+        document.querySelectorAll(".language-html, .language-js, .language-md, .language-css, code").forEach(element => (element.style.fontName = 'Cascadia Code'));
+        document.querySelectorAll(".language-html, .language-js, .language-md, .language-css, code").forEach(element => (element.style.background = ' #272822'));
         const optionField = document.querySelectorAll(".mcq-option-row");
         optionField.forEach(element => (element.style.backgroundColor = '#1A1B16'));
         optionField.forEach(element => (element.style.borderBottom = '2px solid #403F2B'));

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        #myKanvas {
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myKanvas"></canvas>
+</body>
+<script>
+const canvas = document.getElementById("myKanvas");
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
+
+const ctx = canvas.getContext("2d");
+ctx.fillStyle= "cyan";
+ctx.fillRect(1, 1, 150, 100);
+
+ctx.font = "30px Arial";
+ctx.fillText("js canvas is cool",10, 200)
+</script>
+</html>

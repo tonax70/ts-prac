@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,13 +11,14 @@
         }
     </style>
 </head>
+
 <body>
     <dialog id="modal">
         <h2 id="title">wait for the dvd to hit 50 times to process: <span id="theCount">0</span></h2>
         <iframe src="bouncingDiv.html" title="Description of the embedded content" width="500" height="300">
-  <p>Your browser does not support iframes.</p>
-</iframe><br/>
-<h4>post data: <span  id="postCountData">0</span></h4>
+            <p>Your browser does not support iframes.</p>
+        </iframe><br />
+        <h4>post data: <span id="postCountData">0</span></h4>
         <button id="close">close dialog</button>
     </dialog>
     <button id="show">show dvd bouncing div</button>
@@ -25,27 +27,28 @@
     const dialog = document.getElementById('modal');
     let isCompleted = false;
     document.getElementById('close').disabled = true;
-        // modal dialog
+    // modal dialog
     // forced user to interact with it before continuing to the other part of the webpage
     // it effectively block other content/actions until the user completed the modal steps or submit the form
 
     // non modal dialog
     // in contrast non modal dialog allow user to interact with other part of the page or application even when the dialog is open
-    document.getElementById('show').addEventListener('click', ()=> dialog.showModal());
+    document.getElementById('show').addEventListener('click', () => dialog.showModal());
     // if we want the user to still be able to interact with the page when the dialog is open, use the dialog.show() instead
-        document.getElementById('close').addEventListener('click', ()=> dialog.close());
+    document.getElementById('close').addEventListener('click', () => dialog.close());
 
-        // receive post message
-        window.addEventListener('message', function(event) {
-            document.getElementById('postCountData').textContent = JSON.stringify(event.data);
-            document.getElementById('theCount').textContent = JSON.stringify(event.data.count);
-            isCompleted = event.data.isSatisfied;
-                    if (isCompleted) {
+    // receive post message
+    window.addEventListener('message', function (event) {
+        document.getElementById('postCountData').textContent = JSON.stringify(event.data);
+        document.getElementById('theCount').textContent = JSON.stringify(event.data.count);
+        isCompleted = event.data.isSatisfied;
+        if (isCompleted) {
             document.getElementById('title').style.color = 'green';
             document.getElementById('close').disabled = false;
 
         }
-        });
+    });
 
 </script>
+
 </html>

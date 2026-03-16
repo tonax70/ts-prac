@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dialogs</title>
+</head>
+<body>
+    <dialog id="modal">
+        <h2>this is a modal dialog</h2>
+        <button id="close">close dialog</button>
+    </dialog>
+    <button id="show">show modal</button>
+</body>
+<script>
+    const dialog = document.getElementById('modal');
+    document.getElementById('show').addEventListener('click', ()=> dialog.showModal());
+        document.getElementById('close').addEventListener('click', ()=> dialog.close());
+
+    // modal dialog
+    // forced user to interact with it before continuing to the other part of the webpage
+    // it effectively block other content/actions until the user completed the modal steps or submit the form
+
+    // non modal dialog
+    // in contrast non modal dialog allow user to interact with other part of the page or application even when the dialog is open
+
+</script>
+</html>

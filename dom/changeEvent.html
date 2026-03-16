@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="status">Select something</h1>
+    <select id="select-menu">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+        <option value="option3">Option 3</option>
+
+        <input id="date" type="date" />
+        <input id="text" type="text" />
+        <input id="color" type="color" />
+        <input id="pass" type="password" />
+
+
+
+    </select>
+</body>
+<script>
+    //change event fire when 
+    // tick or un-tick radio button or checkbox
+    //selection from date, color picker or dropdown menu
+    //when input loses focus
+    //hitting enter after typing sone text
+
+    // note that the change event wont fire when the user click type, only when the user un-focus the input
+
+    function cce(id, message) { // create change event listener
+        document.getElementById(id).addEventListener('change', (event) => {
+            document.getElementById('status').textContent = `${message} ${event.target.value}`;
+
+        })
+    }
+    cce("select-menu", "You selected:");
+    cce("date", "You selected the date:");
+    cce("text", "You typed:");
+    cce("color", "You selected the color:");
+    cce("pass", "You entered the password:");
+</script>
+
+</html>

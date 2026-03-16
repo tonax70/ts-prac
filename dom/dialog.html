@@ -32,6 +32,7 @@
     // non modal dialog
     // in contrast non modal dialog allow user to interact with other part of the page or application even when the dialog is open
     document.getElementById('show').addEventListener('click', ()=> dialog.showModal());
+    // if we want the user to still be able to interact with the page when the dialog is open, use the dialog.show() instead
         document.getElementById('close').addEventListener('click', ()=> dialog.close());
 
         // receive post message

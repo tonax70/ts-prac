@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <span>click me 🖍️🔥🗣️</span>
+    </p>
+    <strong></strong>
+
+    <p id= 'spanList'>
+        <span> i'm span 1  </span>
+<span> i'm span 2  </span>
+<span> i'm span 3  </span>
+<span> i'm span 4  </span>
+<span> i'm span 5  </span>
+<span> i'm span 6  </span>
+<span> i'm span 7  </span>
+<span> i'm span 8  </span>
+<span> i'm span 9  </span>
+<span> i'm span 10  </span>
+<span> i'm span 11  </span>
+<span> i'm span 12  </span>
+<span> i'm span 13  </span>
+<span> i'm span 14  </span>
+<span> i'm span 15  </span>
+<span> i'm span 16  </span>
+<span> i'm span 17  </span>
+<span> i'm span 18  </span>
+<span> i'm span 19  </span>
+<span> i'm span 20  </span>
+
+    </p>
+</body>
+<script>
+    // event bubbling or propagation refer to how and event bubbled up to the parent object when triggered
+    // we target the click event on the span paragraph but we can add the listener to the p instead and the click event will be transfer up to the parent element which is the paragraph
+    const para = document.querySelector('p');
+    const mess = document.querySelector('strong');
+    const spa = document.querySelector('span');
+    const para2 = document.querySelector('#spanList');
+
+    para.addEventListener('click', (event) => {
+        mess.textContent = "p listener Target: " + event.target;
+    })
+
+    spa.addEventListener('click', (event) => {
+        mess.textContent = "span listener Target: " + event.target;
+        event.stopPropagation();
+    })
+
+    // normally with this situation the p listener will listen for span because its being bubbled up
+    // the the span listener never fire
+    // but if we add stopPropagation() the span listener is now works like normal
+    // only when we click at the very close distance with the span we will get the p listener
+
+    // but the propagation behavior is not that annoying, instead it's very useful
+    // if we have a long list of span element inside the paragraph, adding event listener to each span is too redundant and ineffective
+    // we can just add listener to the parent paragraph and it will take cares of its child span elements
+
+    para2.addEventListener('click', (event) => {
+        event.target.style.color = 'red';
+    })
+    // now just like that, with a single event listener we are successfully listen  for all span element or whatever element within it because they are all all bubbled(propagated) to the parent p element
+</script>
+</html>
